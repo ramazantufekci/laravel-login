@@ -14,7 +14,7 @@ class RegisterController extends Controller
 			'email'=>$request->email,
 			'password'=> Hash::make($request->password)
 	]);
-	return view("auth.register");
+	return redirect()->route("login.show");
 
     }
 

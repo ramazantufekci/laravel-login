@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KayitlarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +19,13 @@ use App\Http\Controllers\HomeController;
 });*/
 
 Route::get('/',[HomeController::class, 'create'])->name("ramazan");
+Route::get('/kayitlar', [KayitlarController::class, 'show'])->name('kayitlar');
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
+    //Route::get('/', 'HomeController@index')->name('home.index');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
