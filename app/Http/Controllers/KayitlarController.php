@@ -10,4 +10,9 @@ class KayitlarController extends Controller
     {
         return view("kayitlar.index");
     }
+
+    public function create()
+    {
+        return view('kayitlar.create');
+    }
 }
