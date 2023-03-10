@@ -5,9 +5,9 @@
     <form method="post" action="{{ route('register.perform') }}">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-       <a href="{{ route('ramazan') }}">
-            <img class="mb-4" src="{!! url('images/bootstrap-logo.png') !!}" alt="" width="72" height="57">
-        </a>
+        <a href="{{ route('ramazan')}}">
+		<img class="mb-4" src="{!! url('images/bootstrap-logo.png') !!}" alt="" width="72" height="57">
+	</a>
         
         <h1 class="h3 mb-3 fw-normal">Register</h1>
 

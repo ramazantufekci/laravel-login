@@ -7,7 +7,7 @@
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{{ route('ramazan') }}" class="nav-link px-2 {{Route::current()->getName()=='ramazan'?'text-secondary':'text-white'}}">Home</a></li>
-        <li><a href="{{ route('kayitlar') }}" class="nav-link px-2 {{Route::current()->getName()=='kayitlar'?'text-secondary':'text-white'}}">Kayıt Oluştur</a></li>
+        <li><a href="{{ route('kayitlar.index') }}" class="nav-link px-2 {{Route::current()->getName()=='kayitlar.index'?'text-secondary':'text-white'}}">Kayit Olustur</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
         <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
         <li><a href="#" class="nav-link px-2 text-white">About</a></li>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KayitlarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,13 @@ use App\Http\Controllers\KayitlarController;
 });*/
 
 Route::get('/',[HomeController::class, 'create'])->name("ramazan");
-Route::get('/kayitlar', [KayitlarController::class, 'show'])->name('kayitlar');
+/*Route::get('/kayitlar',[KayitlarController::class, 'index'])->name('kayitlar');
+Route::get('/kayitlar/olustur',[KayitlarController::class, 'create'])->name('kayitlar.create');
+Route::post('/kayitlar/olustur',[KayitlarController::class, 'store'])->name('kayitlar.store');
+Route::post('/kayitlar/sil',[KayitlarController::class, 'store'])->name('kayitlar.store');*/
+
+Route::resource('kayitlar',KayitlarController::class);
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     /**
