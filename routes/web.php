@@ -18,16 +18,22 @@ use App\Http\Controllers\KayitlarController;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
+Auth::routes(['verify'=> true]);
 Route::get('/',[HomeController::class, 'create'])->name("ramazan");
-/*Route::get('/kayitlar',[KayitlarController::class, 'index'])->name('kayitlar');
+/*
+Route::get('/kayitlar',[KayitlarController::class, 'index'])->name('kayitlar');
 Route::get('/kayitlar/olustur',[KayitlarController::class, 'create'])->name('kayitlar.create');
 Route::post('/kayitlar/olustur',[KayitlarController::class, 'store'])->name('kayitlar.store');
-Route::post('/kayitlar/sil',[KayitlarController::class, 'store'])->name('kayitlar.store');*/
+Route::post('/kayitlar/sil',[KayitlarController::class, 'store'])->name('kayitlar.store');
+*/
+
+Route::get('email/verify',[App\Http\Controllers\Auth\VerificationController::class,'show'])->middleware('auth')->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}',[App\Http\Controllers\Auth\VerificationController::class,'verify'])->middleware(['auth','signed'])->name('verification.verify');
+Route::post('/email/verification-notification',[App\Http\Controllers\Auth\VerificationController::class,'resend'])->middleware(['auth','throttle:6,1'])->name('verification.send');
 
 Route::resource('kayitlar',KayitlarController::class);
 
-Route::group(['namespace' => 'App\Http\Controllers'], function()
+Route::group(['namespace' => 'App\Http\Controllers\Auth'], function()
 {   
     /**
      * Home Routes
@@ -44,7 +50,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Login Routes
          */
-        Route::get('/login', 'LoginController@show')->name('login.show');
+        Route::get('/login', 'LoginController@show')->name('login');
         Route::post('/login', 'LoginController@login')->name('login.perform');
 
     });

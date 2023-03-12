@@ -3,8 +3,8 @@
         
         <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
         <a href="<?php echo e(route('ramazan')); ?>">
-            <img class="mb-4" src="<?php echo url('images/bootstrap-logo.png'); ?>" alt="" width="72" height="57">
-        </a>
+		<img class="mb-4" src="<?php echo url('images/bootstrap-logo.png'); ?>" alt="" width="72" height="57">
+	</a>	
         
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 
